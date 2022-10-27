@@ -1,6 +1,8 @@
 import { Contact, Message, ScanStatus, WechatyBuilder } from "wechaty";
 import qrTerm from "qrcode-terminal";
 import { getLogger } from "../logger";
+import PluginList from "../../plugin";
+
 // import { FileBox } from "file-box";
 
 const appLogger = getLogger("app");
@@ -41,7 +43,7 @@ function onError(e: Error) {
 }
 
 async function onMessage(msg: Message) {
-  console.info(msg.toString());
+  PluginList.forEach((pluginItem) => pluginItem.message(msg));
 }
 
 export { WechatBot };

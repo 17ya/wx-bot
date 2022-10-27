@@ -1,4 +1,6 @@
 import "./src/logger";
+import "./plugin";
+
 import { WechatBot } from "./src/bot";
 
 global.wechatBot = WechatBot;
